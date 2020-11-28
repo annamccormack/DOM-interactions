@@ -44,6 +44,7 @@ function updateCounts() {
     invisible: 0
   }
   // WRITE CODE HERE TO COUNT BLUE, GREEN, AND INVISIBLE DOTS
+
   let blueArray = document.getElementsByClassName('blue');
   totals.blue = blueArray.length
 
@@ -52,7 +53,7 @@ function updateCounts() {
 
   let invisibleArray = document.getElementsByClassName('invisible');
   totals.invisible = invisibleArray.length
-
+ 
   // Once you've done the counting, this function will update the display
   displayTotals(totals)
 }
@@ -77,4 +78,23 @@ function displayTotals(totals) {
 // totals.blue = blueArray.length
 
 // 3. repeat for green and invisible dots
+
+// 4. can I make a function that that I can pass in blue, green and invisible as arguements to make my code less reptitive?
+
+// attempt 1:
+/*function findTotals (prop) {
+  let array = document.getElementsByClassName(prop);
+  totals.prop = array.length;
+}
+findTotals('blue'); */
+
+//attempt:2
+
+/*function findTotals (dots, prop) {
+  let array = document.getElementsByClassName(dots)
+  totals.prop = array.length
+}
+
+findTotals('green', green) */
+
 
