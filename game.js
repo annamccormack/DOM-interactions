@@ -3,11 +3,11 @@
 // https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded
 document.addEventListener('DOMContentLoaded', start)
 
-function start () {
+function start() {
   bindEventListeners(document.getElementsByClassName('board')[0].children)
 }
 
-function bindEventListeners (dots) {
+function bindEventListeners(dots) {
   for (var i = 0; i < dots.length; i++) {
     // BIND YOUR EVENT LISTENERS HERE
     // The first one is provided for you
@@ -17,41 +17,64 @@ function bindEventListeners (dots) {
   }
 }
 
-function makeGreen (evt) {
+function makeGreen(evt) {
   evt.preventDefault()
   evt.target.classList.toggle('green')
   updateCounts()
 }
 
 // CREATE FUNCTION makeBlue HERE
-function makeBlue (evt) {
+function makeBlue(evt) {
   evt.target.classList.toggle('blue')
-  updateCounts ()
+  updateCounts()
 }
 
 // CREATE FUNCTION hide HERE
 
-function hide (evt) {
+function hide(evt) {
   evt.target.classList.toggle('invisible')
-  updateCounts ()
+  updateCounts()
 }
 
 
-function updateCounts () {
+function updateCounts() {
   var totals = {
     blue: 0,
     green: 0,
     invisible: 0
   }
-  
   // WRITE CODE HERE TO COUNT BLUE, GREEN, AND INVISIBLE DOTS
+  let blueArray = document.getElementsByClassName('blue');
+  totals.blue = blueArray.length
+
+  let greenArray = document.getElementsByClassName('green');
+  totals.green = greenArray.length
+
+  let invisibleArray = document.getElementsByClassName('invisible');
+  totals.invisible = invisibleArray.length
 
   // Once you've done the counting, this function will update the display
   displayTotals(totals)
 }
 
-function displayTotals (totals) {
+function displayTotals(totals) {
   for (var key in totals) {
     document.getElementById(key + '-total').innerHTML = totals[key]
   }
 }
+
+
+// the number of 'blue' classes = property value (number of blue dots) within the totals object. 
+// the property value = the array length of the array created from document.getElementsByClassName('')
+
+// 1. create a vairable that contains the array from document.getElementsByClassName??
+
+// let blueArray = document.getElementsByClassName('blue'); 
+// console.log(blueArray.length);
+
+//  2. change property value to length of the array 
+
+// totals.blue = blueArray.length
+
+// 3. repeat for green and invisible dots
+
